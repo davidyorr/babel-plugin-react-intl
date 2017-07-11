@@ -32,10 +32,14 @@ var Foo = function (_Component) {
     _createClass(Foo, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(_reactIntl.FormattedMessage, {
-                id: 'foo.bar.baz',
-                defaultMessage: 'Hello World!'
-            });
+            return _react2.default.createElement(
+                'div',
+                { id: 'foo.bar.div' },
+                _react2.default.createElement(_reactIntl.FormattedMessage, {
+                    id: 'babel-plugin-react-intl.foo.bar.baz',
+                    defaultMessage: 'Hello World!'
+                })
+            );
         }
     }]);
 

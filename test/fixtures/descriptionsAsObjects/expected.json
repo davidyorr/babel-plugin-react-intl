@@ -1,6 +1,6 @@
 [
   {
-    "id": "foo.bar.baz",
+    "id": "babel-plugin-react-intl.foo.bar.baz",
     "description": {
       "text": "Something for the translator.",
       "metadata": "Additional metadata content."

@@ -1,6 +1,6 @@
 [
   {
-    "id": "foo.bar.baz",
+    "id": "babel-plugin-react-intl.foo.bar.baz",
     "defaultMessage": "Hello World!",
     "file": "test/fixtures/extractSourceLocation/actual.js",
     "start": {

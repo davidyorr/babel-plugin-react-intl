@@ -22,11 +22,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var msgs = (0, _reactIntl.defineMessages)({
     header: {
-        'id': 'foo.bar.baz',
+        'id': 'babel-plugin-react-intl.foo.bar.baz',
         'defaultMessage': 'Hello World!'
     },
     content: {
-        'id': 'foo.bar.biff',
+        'id': 'babel-plugin-react-intl.foo.bar.biff',
         'defaultMessage': 'Hello Nurse!'
     }
 });

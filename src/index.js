@@ -5,9 +5,11 @@
  */
 
 import * as p from 'path';
-import {writeFileSync} from 'fs';
+import {writeFileSync, readFileSync} from 'fs';
 import {sync as mkdirpSync} from 'mkdirp';
 import printICUMessage from './print-icu-message';
+
+const MESSAGE_PREFIX = JSON.parse(readFileSync(p.resolve(p.resolve('package.json')), 'utf8')).name;
 
 const COMPONENT_NAMES = [
     'FormattedMessage',
@@ -107,6 +109,8 @@ export default function ({types: t}) {
 
             if (key === 'defaultMessage') {
                 descriptor[key] = getICUMessageValue(valuePath, {isJSXSource});
+            } else if (key === 'id') {
+                descriptor[key] = `${MESSAGE_PREFIX}.${getMessageDescriptorValue(valuePath)}`;
             } else {
                 descriptor[key] = getMessageDescriptorValue(valuePath);
             }
@@ -213,6 +217,11 @@ export default function ({types: t}) {
         },
 
         visitor: {
+            JSXAttribute(path) {
+                if (path.node.name.name === 'id' && COMPONENT_NAMES.includes(path.parentPath.node.name.name)) {
+                    path.node.value.value = `${MESSAGE_PREFIX}.${path.node.value.value}`;
+                }
+            },
             JSXOpeningElement(path, state) {
                 if (wasExtracted(path)) {
                     return;

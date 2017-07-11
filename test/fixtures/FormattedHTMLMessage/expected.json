@@ -1,6 +1,6 @@
 [
   {
-    "id": "foo.bar.baz",
+    "id": "babel-plugin-react-intl.foo.bar.baz",
     "description": "The default message.",
     "defaultMessage": "<h1>Hello World!</h1>"
   }
